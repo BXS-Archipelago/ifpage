@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.base-img { 
+    background-image:  url("../img/iceblue.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+   width: 100%;
+    height: 100vh;
+        }
+
+/*------------------------------------------------------------Logo & Nav Bar*/
+
+nav {
+    padding: 50px;
+    
+   }
+
+.logo{
+    float: left;
+       }
+
+.logo-title {
+    font-family: "Shadows Into Light", sans-serif;
+     font-size: 100px;
+     letter-spacing: 2px;
+    color: #FF3B3F;
+    line-height: 1;
+}
+
+.logo-base a:hover {
+    text-decoration: none;
+
+}
+   
+.logo-title-strong {
+   
+    font-family: "Shadows Into Light", sans-serif;
+    letter-spacing: 2px;
+     color: #FF3B3F;
+     line-height: 0.75;
+    font-weight: bolder;
+    font-size: 120px;
+        }
+
+ 
+nav .nav-wrapper ul li a {
+    float: right;
+    text-decoration: none;
+    list-style: none;
+}
+
+.nav-wrapper ul li a:hover{
+    color: #252525; 
+    opacity: 0.7;
+    transition: 1s;
+    text-shadow: 2px 4px 8px #FF0000;
+}
+
+nav ul {
+    float: right;
+}
+
+nav ul li {
+    display: inline-block;
+   padding: 25px 0;
+}
+
+
+
+nav ul li:not(:first-child){
+    margin-left: 48px;
+    }
+
+    nav ul li:last-child{
+    margin-right: 28px;
+    }
+
+nav ul li a {
+    display: inline-block;
+    color: #FF3B3F;
+    font-family: "Shadows Into Light", sans-serif;
+     font-size: 40px;
+     font-weight: bold;
+     letter-spacing: 2px;
+}
+
+/*-----------------------------------------------------------Media Query*/
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 10px 10px;
+    }
+    .logo
+    {
+        padding: 20px 15px;
+    }
+    .logo-title {
+        font-size: 40px;
+    }
+     .logo-title-strong {
+        font-size: 50px;
+    }
+nav ul li{
+    padding: 12px 5px;
+}
+
+    nav ul li a {
+        font-size: 35px;
+            }
+
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #CAEBF2;
+        z-index: -1;
+        opacity: 0;
+        transition: all 0.2s ease;
+    }        
+
+     .nav-wrapper ul{
+         position: absolute;
+         top: 30%;
+         transform: translateY(-50%);
+         width: 100%;
+    }        
+
+    .nav-wrapper ul li {
+        display: block;
+        width: 100%;
+        float: none;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+
+/*--------------------------------------------------------Drop-down Sequence*/
+
+    .nav-wrapper ul li:nth-child(1) a {
+        transition-delay: 0.2s;
+    }
+
+    .nav-wrapper ul li:nth-child(2) a {
+        transition-delay: 0.4s;
+    }
+
+    .nav-wrapper ul li:nth-child(3) a {
+        transition-delay: 0.5s;
+    }
+
+   nav ul li:not(:first-child){
+    margin-left: 0;
+    }    
+
+.nav-wrapper ul li a {
+    padding: 10px 22px;
+    color: #FF3B3F;
+    font-weight: 14px;
+    letter-spacing: 1.2px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.2s ease;
+}
+
+    .nav-btn {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        width: 48px;
+        height: 48px;
+        display: block;
+        cursor: pointer;
+        z-index: 9999;
+        border-radius: 50%;
+    }
+
+    .nav-btn i {
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: #FF3B3F;
+        border-radius: 2px;
+        margin-left: 5px;
+    }
+
+    .nav-btn i:nth-child(1){
+        margin-top: 24px;
+    }
+    .nav-btn i:nth-child(2){
+        margin-top: 4px;
+        opacity: 1;
+    }
+    .nav-btn i:nth-child(3){
+        margin-top: 4px;
+    }
+
+}
+/*--------------------------------------------------------------Small Screen*/
+@media screen and (max-width: 390px) {
+    nav {
+        padding: 0;
+    }
+
+.logo{
+    padding: 25px 25px;
+}
+
+    .logo-title {
+        font-size: 30px;
+    }
+     .logo-title-strong {
+        font-size: 40px;
+    }
+
+    nav ul li a {
+        font-size: 23px;
+    }
+
+}
+/*----------------------------------------------------------BurgerIcon setting*/
+
+#nav:checked + .nav-btn{
+    transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i{
+    background: #FF3B3F;
+    transition: all 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+    transform: translateY(7px) rotate(180deg);
+}
+#nav:checked + .nav-btn i:nth-child(2) {
+    opacity:0;
+}
+#nav:checked + .nav-btn i:nth-child(3) {
+    transform: translateY(-7px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+    z-index: 9990;
+    opacity: 1;
+}
+
+#nav:checked ~ .nav-wrapper ul li a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    display: none;
+    }
+
+
+
+/*--------------------------------------Footer area*/
+
+footer {
+    height: 12vh;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    }
+
+.tagline {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.tagline a {
+    color: #eee2dc;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+.social-icons i {
+   font-size: 18px;
+  color:#eee2dc;
+   text-decoration: none; 
+   line-height: 2;
+   
+}
+.social-icons a:hover{
+    transition: ease;
+    opacity: 0.5;
+    transition-duration: 1s;
+    -moz-transition: ease 1s;
+    -webkit-transition: ease 1s;
+    -o-transition: ease 1s;
+ }
+
+.social-icons a{
+    text-decoration: none;
+     }
+
+
+
+@media screen and (max-width: 600px)
+{ 
+    footer {
+        height: 12vh;
+        }
+
+    .tagline {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+.social-icons i {
+   font-size: 14px;
+   line-height: 1.2;
+
+}
+}
+
+
+
